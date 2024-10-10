@@ -31,6 +31,9 @@ public:
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UVitalAttributeSet, MaxMana);
 
+	UPROPERTY(BlueprintReadOnly)
+	FGameplayAttributeData Stamina;
+	ATTRIBUTE_ACCESSORS(UVitalAttributeSet, Stamina);
 	
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;

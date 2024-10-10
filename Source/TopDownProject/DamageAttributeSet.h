@@ -24,7 +24,7 @@ public:
 	ATTRIBUTE_ACCESSORS(UDamageAttributeSet, Resistance);
 
 	UPROPERTY(BlueprintReadOnly)
-	FGameplayAttributeData ManaPower;
-	ATTRIBUTE_ACCESSORS(UDamageAttributeSet, ManaPower);
+	FGameplayAttributeData MagicPower;
+	ATTRIBUTE_ACCESSORS(UDamageAttributeSet, MagicPower);
 
 };
