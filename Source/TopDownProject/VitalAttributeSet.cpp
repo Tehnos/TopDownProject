@@ -3,6 +3,8 @@
 
 #include "VitalAttributeSet.h"
 
+
+
 void UVitalAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)  
 { 
 	Super::PreAttributeChange(Attribute,NewValue);
@@ -11,15 +13,23 @@ void UVitalAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute,
 		NewValue = FMath::Clamp(NewValue, 0.f, MaxHealth.GetCurrentValue());
 	}
 }
+void UVitalAttributeSet::PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& NewValue)
+{
+	Super::PreAttributeBaseChange(Attribute, NewValue);
+	if (Attribute == GetHealthAttribute())
+	{
+		NewValue = FMath::Clamp(NewValue, 0.f, MaxHealth.GetCurrentValue());
+	}
+}
 
  void UVitalAttributeSet::PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) 
  { 
-	 Super::PostAttributeBaseChange(Attribute, OldValue, NewValue);
+	 Super::PostAttributeChange(Attribute, OldValue, NewValue);
 	 if (Attribute == GetHealthAttribute())
 	 {
 		 if (NewValue <= 0.f)
 		 {
-
+			 //GetOwningAbilitySystemComponent()->AddLooseGameplayTag()
 		 }
 	 }
  }
