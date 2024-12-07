@@ -9,6 +9,7 @@
 /**
  * 
  */
+
 UCLASS()
 class TOPDOWNPROJECT_API UVitalAttributeSet : public UTopDownAttributeSet
 {

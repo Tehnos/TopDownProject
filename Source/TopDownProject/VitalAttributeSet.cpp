@@ -20,6 +20,10 @@ void UVitalAttributeSet::PreAttributeBaseChange(const FGameplayAttribute& Attrib
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, MaxHealth.GetCurrentValue());
 	}
+	else if (Attribute == GetManaAttribute())
+	{
+		NewValue = FMath::Clamp(NewValue, 0.f, MaxMana.GetCurrentValue());
+	}
 }
 
  void UVitalAttributeSet::PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) 
